@@ -75,6 +75,16 @@ def find_favorite(array_of_hash_objects)
   # TIP: there will only be a maximum of one hash in the array that will
   # return true to the :is_my_favorite? key
   #array_of_hash_objects.collect{|name, x| name if x[is_my_favorite?]==true}
-  array_of_hash_objects.select{|name, data| data[:is_my_favorite?]==true}
-
+  array_of_hash_objects.each do|i|
+    if i[:is_my_favorite?] == true
+      return i
+    end
+  end
+  return nil
 end
+
+# puts find_favorite([
+#   { name: 'JavaScript', is_my_favorite?: false },
+#   { name: 'Ruby', is_my_favorite?: true },
+#   { name: 'HTML', is_my_favorite?: false }
+# ])
